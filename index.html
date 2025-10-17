@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Replica</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-image: url('biglietto.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative; /* serve per posizionare gli elementi dentro */
+    }
+
+    .data {
+      position: absolute;
+      top: 383px; /* distanza dal bordo superiore */
+      left: 260px; /* distanza dal bordo sinistro */
+      color: rgba(239, 245, 248, 0.8);
+      letter-spacing: 0.4px;
+      font-size: 14px;
+      font-family: Arial, sans-serif; /* font principale + font di riserva */
+      font-weight: bold;
+    }
+
+    .bottone {
+      position: absolute;
+      top: 400px;
+      left: 100px;
+      background: rgba(239, 245, 248, 0.8);
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-family: Arial, sans-serif; /* font principale + font di riserva */
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="data" id="data"></div>
+
+  <script>
+    const oraAttuale = new Date();
+    const giorno = oraAttuale.getDate();
+    const mese = oraAttuale.getMonth() + 1;
+    const anno = oraAttuale.getFullYear() % 100;
+    const ore = oraAttuale.getHours();
+    const minuti = oraAttuale.getMinutes().toString().padStart(2, '0');
+
+    document.getElementById("data").textContent = 
+      `${giorno}/${mese}/${anno}`;
+  </script>
+
+</body>
+</html>
